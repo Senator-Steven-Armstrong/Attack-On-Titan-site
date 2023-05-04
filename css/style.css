@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Castoro+Titling&display=swap');
+
+:root{
+    --primary: #472d30;
+    --secondary: #723d46;
+    --tertiary: #ffe1a8;
+}
+
+body{
+    background-color: black;
+    margin: 0;
+    height: auto;
+}
+
+header{
+    display: flex;
+    width: 100%;
+    height: auto;  
+    justify-content: center;
+    align-items: center;
+}
+
+header img:first-child{
+    width: 100%;
+    height: 100%;
+}
+
+#logo-img{
+    display: block;
+    position: absolute;
+    width: 60vw;
+    margin-bottom: 20%;
+
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0%);
+
+    transition: opacity 2s ease-in, scale 5s ease-in-out, transform 3s;
+}
+
+footer{
+    width: 100%;
+    height: 60vh;
+    margin-top: 10vh;
+    background-color: var(--secondary);
+    border-top: solid var(--primary) 1vh;
+}
+table{
+    margin-left: 2vw;
+    margin-top: 2vh;
+    width: 40vw;
+}
+thead{
+    background-color: var(--primary);
+}
+tbody{
+    background-color: rgb(235, 205, 205);
+}
+tfoot{
+    background-color: #ffe1a8;
+    font-variant: small-caps;
+}
+
+
+.black-fade{
+    position: absolute;
+    display: block;
+    background-color: black;
+    background-image: none;
+    z-index: 10;
+    width: 100%;
+    height: 40%;
+    align-self: flex-start;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    mask-image: gradient(linear, left center, left bottom, from(rgb(0, 0, 0)), to(rgba(0,0,0,0)));
+}
+
+.black-fade-bottom{
+    align-self: flex-end;
+    -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))) !important;
+    mask-image: gradient(linear, left bottom, left top, from(rgb(0, 0, 0)), to(rgba(0,0,0,0))) !important;
+}
+
+/* Animations */
+
+.coolTransition{
+    scale: 1.1 !important;
+    opacity: 0 !important;
+    transform: translateY(-6%) !important;
+}
+
+/* ------------ */
+
+.space{
+    width: 100%;
+    height: 20vh;
+    background-color: black;
+}
+
+#levi{
+    position: relative;
+    width: 100%;
+    height: 123vh;
+    background-image: url('../images/levi roll 74.png');
+    background-size: 7400%;
+    background-repeat: no-repeat;
+    color: white;
+    /* border: solid white 2px; */
+}
+
+.small-container{
+    position: absolute;
+    display: block;
+    width: 16vw;
+    height: 20vh;
+    background-color: rgba(0, 0, 0, 0.642);
+    box-shadow: 0px 0px 10px  rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 2%;
+    font-size: 120%;
+    /* font-family: "Castoro Titling"; */
+    margin: 0%;
+    transition: all 1s;
+}
+
+#levi .small-container:first-child{
+    margin-top: 30vh;
+    margin-left: 8vw;
+}
+
+#levi .small-container:last-child{
+    margin-top: 70vh;
+    margin-left: 12vw;
+}
+
+#founding{
+    position: relative;
+    background-image: url('../images/the rumbling eren eye zoom - 174.png');
+    width: 100%;
+    height: 100vh;
+    background-size: 17400%;
+    background-repeat: no-repeat;
+}
+
+#freedom{
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/freedom.gif');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+
+nav{
+    display: flex;
+    position: sticky;
+    width: 100%;
+    height: 16vh;
+    background-color: var(--primary);
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1vw 15px black;
+
+    top: -1000px;
+    transition: top 0.3s ease-out;
+
+    z-index: 100000;
+}
+
+nav a{
+    display: flex;
+    width: 90%;
+    height: 14vh;
+    background-color: var(--secondary);
+    text-decoration: none;
+    color: var(--tertiary);
+    font-family: "Castoro titling";
+    font-size: 200%;
+    
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.5s ease-out;
+}
+
+nav a img{
+    width: 28vw;
+}
+
+nav a:nth-child(2){
+    width: 100%;
+    align-self: flex-start;
+    height: 21vh;
+    border: solid var(--primary) 0.5vw;
+    box-shadow: 0px 2px 15px black;
+    z-index: 10;
+}
+
+nav a:hover{
+    width: 110%;
+    height: 22vh;
+}
+
+nav a:first-child:hover, nav a:last-child:hover{ 
+    width: 100%;
+    height: 15vh;
+}
+
+.center-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+form{
+    width: 90vw;
+}
+
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px; 
+    border: 2px solid var(--secondary); 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical 
+}
+  
+input[type=submit] {
+    background-color: var(--tertiary);
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5vh;
+}
+  
+input[type=submit]:hover {
+    background-color: #fff2da;
+}
+
+label h4{
+    margin-left: 1vw;
+    color: var(--tertiary);
+}
+
+h4{
+    margin-bottom: 0;
+    font-family: "Castoro titling";
+}
+
+iframe{
+    width: 60vw;
+    height: 40vh;
+}
+
+@media screen and (max-width: 600px) {
+    header img:first-child{
+        height: 100vh;
+        width: auto;
+    }
+
+    #levi{
+        height: 100vh;
+    }
+
+    nav{
+        flex-direction: column;
+        height: 30vh;
+    }
+    nav a{
+        width: 98vw;
+    }
+    nav a img{
+        width: 60%;
+    }
+}
