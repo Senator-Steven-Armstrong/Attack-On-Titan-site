@@ -14,15 +14,8 @@ class element{
         this.image.src = this.imageSrc
         this.attemptedMovement = 0
         this.scrollBuffer = 0
-        this.ass = 0
         this.isApplyingEffect = true
     }
-
-    // changeBackground(imagePath){
-    //     this.imageSrc = imagePath
-    //     this.HTMLelement.style.backgroundImage = "url('" + imagePath + "')"
-    //     this.HTMLelement.style.backgroundSize = "100%"
-    // }
 }
 
 const headerCollection = document.getElementsByTagName("header")
@@ -42,8 +35,6 @@ const review1 = document.getElementById("review1")
 const review2 = document.getElementById("review2")
 
 const navBar = document.getElementById('nav')
-
-
 
 // Code
 
@@ -87,38 +78,28 @@ function showNavOnScroll(){
 }
 
 function frameLoop(){
-    if(window.innerWidth > 600){
-        // Main code that runs constantly, not only on scroll
-        // if(accurateScrollY >= leviImg.originalTop){
-        //     showOnLastFrame(leviImg, review1)
-        //     showOnLastFrame(leviImg, review2, 200)
-        // } 
+    if(window.innerWidth > 1000){
+        // Primary code that runs constantly, not only on scroll
         showNavOnScroll()
+        delaySticky(foundingImg, 2, true, 1) 
+        showOnLastFrame(leviImg, review1)
+        showOnLastFrame(leviImg, review2, 200)
         if(foundingImg.currentFramePercentage >= 100 && foundingImg.imageSrc == './images/the rumbling eren eye zoom - 174.png'){
             freedomImg.style.opacity = 1
             foundingImg.HTMLelement.style.position = "sticky"
-            foundingImg.isApplyingEffect = false
+            foundingImg.isApplyingEffect = false  
         }
-    }
-    
+    } 
 }
+
 setInterval(frameLoop, 10)
 
 document.addEventListener("scroll", function(){
-    if(window.innerWidth > 600){
-        // //Main code that runs only on scroll
-        // delayBetweenPoints(headerRect.top, headerRect.bottom, logoImg, 2, 80)
-        // // delayBetweenPoints(leviImg.originalTop, leviImg.originalBottom*2, leviImg, 1.4, 100)
-        // animateOnScroll(leviImg.originalTop, leviImg.originalBottom*4, leviImg.HTMLelement, 2)
-        
-        
-        // animateOnScroll(foundingImg.originalTop, foundingImg.originalBottom*4, foundingImg.HTMLelement, 2)
-
-        // delaySticky(leviImg, 1.5)
-        
-        delaySticky(leviImg, 1.5, false, 4)
-        delaySticky(logoImg, 1.5, false, 2) 
-        delaySticky(foundingImg, 2, true, 4)  
+    if(window.innerWidth > 1000){
+        // Primary code that runs only on scroll
+        delaySticky(leviImg, 1.5, 4)
+        delaySticky(logoImg, 1.5, 2) 
+         
         animateOnScroll(leviImg, 2)
         if(foundingImg.isApplyingEffect == true)
         animateOnScroll(foundingImg, 1)
@@ -132,12 +113,6 @@ function updateScrollY(){
 
 setInterval(updateScrollY, 0.1)
 
-// function delaySticky(element, rate){
-//     if(ifOnScreen(element, 2)){
-//         element.scrollValue = (accurateScrollY-element.originalTop)/rate
-//         element.HTMLelement.style.marginTop = element.scrollValue + 'px'
-//     } 
-// }
 
 function ifOnScreen(element, partVisible = 2){
     const rect = element.HTMLelement.getBoundingClientRect()
@@ -148,24 +123,18 @@ function ifOnScreen(element, partVisible = 2){
     }
 }
 
-function delaySticky(element, rate, willStayForAnimation, partVisible = 2){
+function delaySticky(element, rate, partVisible = 2){
     if(ifOnScreen(element, partVisible)){
         if(element.scrollBuffer == 0)
             element.scrollBuffer = accurateScrollY
-        if(willStayForAnimation == true && element.currentFramePercentage < 98 && element.HTMLelement.getBoundingClientRect().top <= 0){
-            if(element.ass == 0)
-                element.ass =  ((accurateScrollY)-element.scrollBuffer) - ((accurateScrollY)-element.scrollBuffer)/rate
-            // element.scrollValue = ((accurateScrollY)-element.scrollBuffer)/rate + element.ass
-        }else{
-            element.scrollValue = ((accurateScrollY)-element.scrollBuffer)/rate 
-        } 
+        element.scrollValue = ((accurateScrollY)-element.scrollBuffer)/rate 
         if(element.scrollValue > 0)
             element.HTMLelement.style.marginTop = element.scrollValue + 'px'
     }
 }
 
-function animateOnScroll(element, rate){
-    if(ifOnScreen(element)){
+function animateOnScroll(element, rate, partVisible = 2){
+    if(ifOnScreen(element, partVisible)){
         moveFrames(element, rate)
     }
 }
@@ -188,22 +157,26 @@ function moveFrames(element, rate){
     }  
 }
 
-// function showOnLastFrame(animatedElement, hiddenElement, delayTime = 0){
-//     if(animatedElement.currentFramePercentage >= 98 && hiddenElement.classList.contains("hidden")){
-//         if(delayTime == 0){
-//             hiddenElement.classList.add("show")
-//             hiddenElement.classList.remove("hidden")
-//             hiddenElement.classList.add("resetTranslate")
-//             hiddenElement.classList.remove("slideFromLeft")
-//         }else{
-//             setTimeout((element) => {
-//                 element.classList.add("show")
-//                 element.classList.remove("hidden")
-//                 element.classList.add("resetTranslate")
-//                 element.classList.remove("slideFromLeft")
-//             }, delayTime, hiddenElement);
-//         }    
-//     }
-// }
+function showOnLastFrame(animatedElement, hiddenElement, delayTime = 0){
+    if(animatedElement.currentFramePercentage >= 98){
+        if(delayTime == 0){
+            hiddenElement.style.opacity = 1
+        }else{
+            setTimeout((element) => {
+                element.style.opacity = 1
+            }, delayTime, hiddenElement);
+        }    
+    }
+}
+
+function changeVisibilityNav() {
+    const links = document.getElementById("links");
+    if (links.style.display === "block") {
+      links.style.display = "none";
+    } else {
+      links.style.display = "block";
+    }
+  }
+
 
 

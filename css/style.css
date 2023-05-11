@@ -18,11 +18,18 @@ header{
     height: auto;  
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 header img:first-child{
     width: 100%;
     height: 100%;
+}
+
+header p{
+    position: absolute;
+    color: red;
+    margin-top: 20vh;
 }
 
 #logo-img{
@@ -36,19 +43,23 @@ header img:first-child{
     transform: translateY(0%);
 
     transition: opacity 2s ease-in, scale 5s ease-in-out, transform 3s;
+    z-index: 900;
 }
 
 footer{
     width: 100%;
-    height: 60vh;
-    margin-top: 10vh;
+    height: auto;
+    padding-top: 5%;
+    margin-top: 0vh;
     background-color: var(--secondary);
-    border-top: solid var(--primary) 1vh;
+    border-top: solid var(--primary) 2vh;
 }
 table{
     margin-left: 2vw;
     margin-top: 2vh;
-    width: 40vw;
+    width: 90vw;
+    padding: 2%;
+    font-size: 2vw;
 }
 thead{
     background-color: var(--primary);
@@ -59,6 +70,9 @@ tbody{
 tfoot{
     background-color: #ffe1a8;
     font-variant: small-caps;
+}
+td{
+    padding: 1%;
 }
 
 
@@ -100,7 +114,7 @@ tfoot{
 #levi{
     position: relative;
     width: 100%;
-    height: 123vh;
+    height: 120vh;
     background-image: url('../images/levi roll 74.png');
     background-size: 7400%;
     background-repeat: no-repeat;
@@ -121,6 +135,7 @@ tfoot{
     font-size: 120%;
     /* font-family: "Castoro Titling"; */
     margin: 0%;
+    opacity: 0;
     transition: all 1s;
 }
 
@@ -151,9 +166,18 @@ tfoot{
     background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.5s ease-out;
+    display: flex;
+    align-items: center;
+    font-family: "Castoro titling";
 }
 
-nav{
+#freedom h2{
+    margin-left: 18vw;
+    font-size: 5vw;
+}
+
+
+#nav{
     display: flex;
     position: sticky;
     width: 100%;
@@ -172,7 +196,7 @@ nav{
     z-index: 100000;
 }
 
-nav a{
+#nav a{
     display: flex;
     width: 90%;
     height: 14vh;
@@ -188,11 +212,11 @@ nav a{
     transition: all 0.5s ease-out;
 }
 
-nav a img{
+#nav a img{
     width: 28vw;
 }
 
-nav a:nth-child(2){
+#nav a:nth-child(2){
     width: 100%;
     align-self: flex-start;
     height: 21vh;
@@ -201,12 +225,12 @@ nav a:nth-child(2){
     z-index: 10;
 }
 
-nav a:hover{
+#nav a:hover{
     width: 110%;
     height: 22vh;
 }
 
-nav a:first-child:hover, nav a:last-child:hover{ 
+#nav a:first-child:hover, #nav a:last-child:hover{ 
     width: 100%;
     height: 15vh;
 }
@@ -234,17 +258,17 @@ input[type=text], select, textarea{
     resize: vertical 
 }
   
-input[type=submit] {
+input[type=button] {
     background-color: var(--tertiary);
     color: black;
-    padding: 12px 20px;
+    padding: 4vw 8vw;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 5vh;
 }
   
-input[type=submit]:hover {
+input[type=button]:hover {
     background-color: #fff2da;
 }
 
@@ -263,24 +287,172 @@ iframe{
     height: 40vh;
 }
 
-@media screen and (max-width: 600px) {
+#mobile-nav{
+    position: sticky;
+    display: block;
+    width: 100%;
+    display: none;
+    
+}
+
+#mobile-nav a{
+    color: var(--tertiary);
+    text-decoration: none;
+}
+
+#top-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--primary);
+    box-shadow: 0px 10px 15px black;
+}
+
+#links{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary);
+}
+
+#links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 100%;
+    padding: 0.5%;
+}
+
+#top-nav img{
+    height: 8vh;
+    width: auto;
+    margin-left: 4vw;
+}
+
+#menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vh;
+    height: 10vh;
+    background-color: var(--secondary);
+    color: var(--tertiary);
+    border: none;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.list-container{
+    margin-top: 10vh; 
+    gap: 5%;
+    text-align: center;
+    background-color: var(--secondary);
+    color: var(--tertiary);
+    font-size: 1.5vw;
+    width: 40vw;
+    height: 60vh;
+    position: relative;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    border: dashed var(--primary) 0.2vw;
+    box-shadow: 0px 0px 10px black;
+}
+
+#list-info-container{
+    height: 150vh;
+    width: 100%;
+}
+
+#list-info-container .list-container:nth-child(2){
+    margin-top: 40vh;
+}
+
+#list-info-container h2{
+    font-size: 3.5vw;
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    #mobile-nav{
+        display: block;
+    }
+
+    #links{
+        display: none;
+    }
+
+    #nav{
+        display: none;
+    }
+
     header img:first-child{
         height: 100vh;
         width: auto;
     }
 
     #levi{
-        height: 100vh;
+        height: 80vh;
+        background-image: url("../images/levi.png");
+        background-size: 300%;
+        background-position-x: 20%;
+        
     }
 
-    nav{
-        flex-direction: column;
-        height: 30vh;
+    #levi .small-container{
+        margin-top: 20vh;
+        margin-left: 8vw;
+        height: 14vh;
+        width: 25vw;
+        opacity: 1;
     }
-    nav a{
-        width: 98vw;
+    
+    #levi .small-container:last-child{
+        margin-top: 50vh !important;
     }
-    nav a img{
-        width: 60%;
+    
+    #freedom{
+        opacity: 1;
+        background-size: 400%;
+        background-position-x: 60%;
+    }
+    #founding{
+        height: 80vh; 
+    }
+
+    #freedom h2{
+        font-size: 10vw;
+    }
+
+    header p{
+        opacity: 0;
+    }
+
+    input[type=button]{
+        width: 40vw;
+        height: 10vh;
+    }
+
+    td{
+        height: 10vh;
+        font-size: 5vw;
+    }
+
+    ul, ol{
+        font-size: 4vw;
+    }
+
+    h2{
+        font-size: 6vw;
     }
 }
