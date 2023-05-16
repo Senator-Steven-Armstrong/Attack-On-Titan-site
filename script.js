@@ -78,8 +78,8 @@ function showNavOnScroll(){
 }
 
 function frameLoop(){
+    // Primary code that runs constantly, not only on scroll
     if(window.innerWidth > 1000){
-        // Primary code that runs constantly, not only on scroll
         showNavOnScroll()
         delaySticky(foundingImg, 2, true, 1) 
         showOnLastFrame(leviImg, review1)
@@ -95,8 +95,8 @@ function frameLoop(){
 setInterval(frameLoop, 10)
 
 document.addEventListener("scroll", function(){
+     // Primary code that runs only on scroll
     if(window.innerWidth > 1000){
-        // Primary code that runs only on scroll
         delaySticky(leviImg, 1.5, 4)
         delaySticky(logoImg, 1.5, 2) 
          
@@ -108,6 +108,7 @@ document.addEventListener("scroll", function(){
 })
 
 function updateScrollY(){
+    //Updates scrollY more often by taking the top of an object from the top of the page, gives more accurate readings
     accurateScrollY = -scrollYCounter.getBoundingClientRect().top
 }
 
@@ -176,7 +177,7 @@ function changeVisibilityNav() {
     } else {
       links.style.display = "block";
     }
-  }
+}
 
 
 

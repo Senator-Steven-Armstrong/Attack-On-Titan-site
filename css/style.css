@@ -55,11 +55,11 @@ footer{
     border-top: solid var(--primary) 2vh;
 }
 table{
-    margin-left: 2vw;
     margin-top: 2vh;
     width: 90vw;
     padding: 2%;
     font-size: 2vw;
+    height: auto;
 }
 thead{
     background-color: var(--primary);
@@ -304,7 +304,7 @@ iframe{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 15vh;
     background-color: var(--primary);
     box-shadow: 0px 10px 15px black;
 }
@@ -321,7 +321,7 @@ iframe{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5vh;
+    height: 10vh;
     width: 100%;
     padding: 0.5%;
 }
@@ -336,8 +336,8 @@ iframe{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10vh;
-    height: 10vh;
+    width: 15vh;
+    height: 15vh;
     background-color: var(--secondary);
     color: var(--tertiary);
     border: none;
@@ -400,6 +400,10 @@ iframe{
         height: 100vh;
         width: auto;
     }
+    footer{
+        align-items: flex-start !important;
+        min-height: 80vh;
+    }
 
     #levi{
         height: 80vh;
@@ -412,7 +416,7 @@ iframe{
     #levi .small-container{
         margin-top: 20vh;
         margin-left: 8vw;
-        height: 14vh;
+        height: auto;
         width: 25vw;
         opacity: 1;
     }
@@ -455,4 +459,17 @@ iframe{
     h2{
         font-size: 6vw;
     }
+
+    .list-container{
+        width: 80vw;
+        height: 40vh;
+        margin-top: 2vh !important;
+    }
+    .list-container li{
+        font-size: 4vw !important;
+    }
+    .list-container h2{
+        font-size: 6vw !important;
+    }
+
 }
