@@ -272,14 +272,11 @@ input[type=button]:hover {
     background-color: #fff2da;
 }
 
-label h4{
+label{
     margin-left: 1vw;
     color: var(--tertiary);
-}
-
-h4{
-    margin-bottom: 0;
     font-family: "Castoro titling";
+    margin-top: 0;
 }
 
 iframe{
